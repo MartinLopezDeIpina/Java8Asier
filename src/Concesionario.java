@@ -48,12 +48,19 @@ public class Concesionario {
         //FORMA 2:
         return listaCoches.stream().mapToInt(Coche::getNumKm).min().orElse(-1);
     }
+    public Coche elCocheKmMasBajo(){
+        return listaCoches.stream().min(comparing(Coche::getNumKm)).orElse(null);
+    }
     public int cocheKmMasAlto(){
         //TODO cocheKmMasAlto HECHO
         //FORMA 1:
         //return listaCoches.stream().sorted(comparing(Coche::getNumKm).reversed()).toList().get(0);
         //FORMA 2:
         return listaCoches.stream().max(comparing(Coche::getNumKm)).orElse(null).getId();
+    }
+    //Devuelve instancia de coche con más KM
+    public Coche elCocheKmMasAlto(){
+        return listaCoches.stream().max(comparing(Coche::getNumKm)).orElse(null);
     }
     public int cocheKmMasBajo(){
         //TODO cocheKmMasBajo HECHO

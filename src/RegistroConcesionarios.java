@@ -48,11 +48,10 @@ public class RegistroConcesionarios {
     }
     public Coche cocheMasKm(){
         //TODO cocheMasKm ERROR: getNumKm tiene que ser estático
-        return listaConcesionarios.stream().map(Concesionario::cocheKmMasAlto).max(comparingInt(Coche::getNumKm)).orElse(null);
+        return listaConcesionarios.stream().map(Concesionario::elCocheKmMasAlto).max(comparing(Coche::getNumKm)).orElse(null);
     }
     public Coche cocheMenosKm(){
         //TODO cocheMenosKm ERROR: getNumKm tiene que ser estático
-        return listaConcesionarios.stream().map(Concesionario::cocheKmMasBajo).max(comparingInt(Coche::getNumKm)).orElse(null);
+        return listaConcesionarios.stream().map(Concesionario::elCocheKmMasBajo).min(comparing(Coche::getNumKm)).orElse(null);
     }
-
 }
